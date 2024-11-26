@@ -6,8 +6,8 @@ services:
         depends_on:
             - sonarqube-database
         environment:
-            - SONARQUBE_JDBC_USERNAME=sonarqube
-            - SONARQUBE_JDBC_PASSWORD=sonarpass
+            - SONARQUBE_JDBC_USERNAME=myadmin
+            - SONARQUBE_JDBC_PASSWORD=MasterMind@321
             - SONARQUBE_JDBC_URL=jdbc:postgresql://sonarqube-database:5432/sonarqube
         volumes:
             - sonarqube_conf:/opt/sonarqube/conf
@@ -19,11 +19,11 @@ services:
 
     sonarqube-database:
         container_name: sonarqube-database
-        image: postgres:12
+        image: postgres:13
         environment:
             - POSTGRES_DB=sonarqube
-            - POSTGRES_USER=sonarqube
-            - POSTGRES_PASSWORD=sonarpass
+            - POSTGRES_USER=myadmin
+            - POSTGRES_PASSWORD=MasterMind@321
         volumes:
             - sonarqube_database:/var/lib/postgresql
             - sonarqube_database_data:/var/lib/postgresql/data
